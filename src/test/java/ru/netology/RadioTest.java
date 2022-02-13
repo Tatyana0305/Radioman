@@ -26,72 +26,66 @@ class RadioTest {
 
     @Test
     public void setCurrentStationNumberOverLimit() {
-        Radio rad = new Radio(7);
+        Radio rad1 = new Radio(7);
 
-        rad.setCurrentStationNumber(6);
+        rad1.setCurrentStationNumber(6);
 
-        assertEquals(6, rad.getCurrentStationNumber());
+        assertEquals(6, rad1.getCurrentStationNumber());
     }
 
     @Test
     public void getCurrentStationNumber() {
-        Radio rad = new Radio(7);
+        Radio rad1 = new Radio(7);
 
-        assertEquals(0, rad.getCurrentStationNumber());
+        assertEquals(0, rad1.getCurrentStationNumber());
     }
 
     @Test
     public void setCurrentStationNumberUnderLimit() {
-        Radio rad = new Radio(7);
+        Radio rad1 = new Radio(7);
 
-        rad.setCurrentStationNumber(-1);
+        rad1.setCurrentStationNumber(-1);
 
-        assertEquals(0, rad.getCurrentStationNumber());
+        assertEquals(0, rad1.getCurrentStationNumber());
     }
 
 
     @Test
     public void getCurrentVolume() {
-        Radio rad = new Radio(7);
+        Radio rad2 = new Radio();
 
-        int expected = 0;
-        int actual = rad.getCurrentVolume();
-
-        assertEquals(expected, actual);
+        assertEquals(0, rad2.getCurrentStationNumber());
     }
 
     @Test
     public void setCurrentVolume() {
-        Radio rad = new Radio(7);
+        Radio rad2 = new Radio();
+        rad2.setCurrentVolume(77);
 
-        rad.setCurrentVolume(77);
-
-        assertEquals(77, rad.getCurrentVolume());
+        assertEquals(77, rad2.getCurrentVolume());
     }
 
     @Test
     public void setCurrentVolumeUnderLimit() {
-        Radio rad = new Radio(7);
+        Radio rad2 = new Radio();
 
-        rad.setCurrentVolume(-1);
+        rad2.setCurrentVolume(-1);
 
-        int expected = 0;
-        int actual = rad.getCurrentVolume();
-        assertEquals(expected, actual);
+        assertEquals(0, rad2.getCurrentVolume());
     }
 
     @Test
     public void setCurrentVolumeOverLimit() {
-        Radio rad = new Radio(7);
+        Radio rad2 = new Radio();
 
-        rad.setCurrentVolume(110);
+        rad2.setCurrentVolume(110);
 
-        assertEquals(0, rad.getCurrentVolume());
+        assertEquals(0, rad2.getCurrentVolume());
     }
 
     @Test
     void setVolumeToMaximum() {
-        Radio rad = new Radio(7);
+        Radio rad = new Radio();
         rad.setVolumeToMaximum();
 
         assertEquals(100, rad.getCurrentVolume());
@@ -99,33 +93,33 @@ class RadioTest {
 
     @Test
     void increaseVolume() {
-        Radio rad = new Radio(7);
-        rad.setCurrentVolume(100);
+        Radio rad2 = new Radio();
+        rad2.setCurrentVolume(100);
 
-        rad.increaseVolume();
+        rad2.increaseVolume();
 
-        assertEquals(100, rad.getCurrentVolume());
+        assertEquals(100, rad2.getCurrentVolume());
 
     }
 
     @Test
     void increaseVolumeToMaximum() {
-        Radio rad = new Radio(7);
-        rad.setVolumeToMaximum();
+        Radio rad2 = new Radio();
+        rad2.setVolumeToMaximum();
 
 
-        assertEquals(100, rad.getCurrentVolume());
+        assertEquals(100, rad2.getCurrentVolume());
 
     }
 
 
     @Test
     void decreaseVolume() {
-        Radio rad = new Radio(7);
-        rad.setCurrentVolume(7);
-        rad.decreaseVolume();
+        Radio rad2 = new Radio();
+        rad2.setCurrentVolume(7);
+        rad2.decreaseVolume();
 
-        assertEquals(6, rad.getCurrentVolume());
+        assertEquals(6, rad2.getCurrentVolume());
 
     }
 
@@ -152,32 +146,32 @@ class RadioTest {
 
     @Test
     void increaseStationNumberToMaximum() {
-        Radio rad = new Radio(7);
-        rad.setCurrentStationNumber(7);
-        rad.increaseStationNumber();
+        Radio rad1 = new Radio(7);
+        rad1.setCurrentStationNumber(7);
+        rad1.increaseStationNumber();
 
-        assertEquals(1, rad.getCurrentStationNumber());
+        assertEquals(1, rad1.getCurrentStationNumber());
 
     }
 
 
     @Test
     void decreaseStationNumber() {
-        Radio rad = new Radio(7);
-        rad.setCurrentStationNumber(4);
-        rad.decreaseStationNumber();
+        Radio rad1 = new Radio(7);
+        rad1.setCurrentStationNumber(4);
+        rad1.decreaseStationNumber();
 
-        assertEquals(3, rad.getCurrentStationNumber());
+        assertEquals(3, rad1.getCurrentStationNumber());
 
     }
 
     @Test
     void decreaseStationNumberToMinimum() {
-        Radio rad = new Radio(7);
-        rad.setCurrentStationNumber(0);
-        rad.decreaseStationNumber();
+        Radio rad1 = new Radio(7);
+        rad1.setCurrentStationNumber(0);
+        rad1.decreaseStationNumber();
 
-        assertEquals(7, rad.getCurrentStationNumber());
+        assertEquals(7, rad1.getCurrentStationNumber());
 
     }
 
