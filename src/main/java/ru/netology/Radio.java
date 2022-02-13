@@ -3,6 +3,46 @@ package ru.netology;
 public class Radio {
     private int currentStationNumber;
     private int currentVolume;
+    private int numberOfStations = 10;
+    private int maxVolume = 100;
+
+    public Radio(int numberOfStations) {
+        this.numberOfStations = numberOfStations;
+    }
+
+    public void setCurrentStationNumber(int newCurrentStationNumber) {
+
+        if (newCurrentStationNumber < 0) {
+            return;
+        }
+        if (newCurrentStationNumber >= numberOfStations) {
+            return;
+        }
+        this.currentStationNumber = newCurrentStationNumber;
+    }
+
+
+    public void increaseStationNumber() {
+        if (currentStationNumber < numberOfStations) {
+            this.currentStationNumber = currentStationNumber + 1;
+        } else {
+            currentStationNumber = 1;
+        }
+    }
+
+
+    public void decreaseStationNumber() {
+        if (currentStationNumber > 0) {
+            this.currentStationNumber = currentStationNumber - 1;
+        } else {
+            currentStationNumber = numberOfStations;
+        }
+
+    }
+
+    public int getNumberOfStations() {
+        return numberOfStations - 1;
+    }
 
 
     public int getCurrentStationNumber() {
@@ -10,18 +50,9 @@ public class Radio {
     }
 
     public void setVolumeToMaximum() {
-        this.currentVolume = 10;
+        this.currentVolume = maxVolume;
     }
 
-    public void setCurrentStationNumber(int newCurrentStationNumber) {
-        if (newCurrentStationNumber < 0) {
-            return;
-        }
-        if (newCurrentStationNumber > 9) {
-            return;
-        }
-        this.currentStationNumber = newCurrentStationNumber;
-    }
 
     public int getCurrentVolume() {
         return currentVolume;
@@ -31,16 +62,17 @@ public class Radio {
         if (newCurrentVolume < 0) {
             return;
         }
-        if (newCurrentVolume > 10) {
+        if (newCurrentVolume > 100) {
             return;
         }
         this.currentVolume = newCurrentVolume;
     }
 
     public void increaseVolume() {
-        if (currentVolume < 10) {
+        if (currentVolume < 100) {
             this.currentVolume = currentVolume + 1;
         }
+       else  this.currentVolume = 100;
     }
 
 
@@ -48,20 +80,8 @@ public class Radio {
         if (currentVolume > 0) {
             this.currentVolume = currentVolume - 1;
         }
+        else  this.currentVolume = 0;
     }
 
 
-    public void increaseStationNumber() {
-        if (currentStationNumber < 9) {
-            this.currentStationNumber = currentStationNumber + 1;
-
-        }
-    }
-
-    public void decreaseStationNumber() {
-        if (currentStationNumber > 0) {
-            this.currentStationNumber = currentStationNumber - 1;
-
-        }
-    }
 }
