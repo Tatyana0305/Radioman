@@ -11,7 +11,7 @@ class RadioTest {
     void shouldUseNumberOfStations() {
         Radio rad1 = new Radio(7);
 
-        assertEquals(6, rad1.getNumberOfStations());
+        assertEquals(7, rad1.getNumberOfStations());
     }
 
 
@@ -92,13 +92,23 @@ class RadioTest {
     }
 
     @Test
-    void increaseVolume() {
+    void increaseVolumeFromMax() {
         Radio rad2 = new Radio();
         rad2.setCurrentVolume(100);
 
         rad2.increaseVolume();
 
         assertEquals(100, rad2.getCurrentVolume());
+
+    }
+    @Test
+    void increaseVolumeFrom50() {
+        Radio rad2 = new Radio();
+        rad2.setCurrentVolume(50);
+
+        rad2.increaseVolume();
+
+        assertEquals(51, rad2.getCurrentVolume());
 
     }
 
@@ -109,6 +119,26 @@ class RadioTest {
 
 
         assertEquals(100, rad2.getCurrentVolume());
+
+    }
+    @Test
+    void increaseStationNumberFromMaximum() {
+        Radio rad2 = new Radio();
+        rad2.setStationNumberToMaximum();
+        rad2.increaseStationNumber();
+
+
+        assertEquals(0, rad2.getCurrentStationNumber());
+
+    }
+
+    @Test
+    void increaseVolumeToMin() {
+        Radio rad2 = new Radio();
+        rad2.setCurrentVolume(-1);
+
+
+        assertEquals(0, rad2.getCurrentVolume());
 
     }
 
@@ -154,6 +184,24 @@ class RadioTest {
 
     }
 
+    @Test
+    void increaseStationNumberOverMaximum() {
+        Radio rad1 = new Radio(7);
+        rad1.setCurrentStationNumber(9);
+        rad1.increaseStationNumber();
+
+        assertEquals(1, rad1.getCurrentStationNumber());
+
+    }
+    @Test
+    void increaseStationNumberToMinimum() {
+        Radio rad1 = new Radio(7);
+        rad1.setCurrentStationNumber(-2);
+        rad1.increaseStationNumber();
+
+        assertEquals(1, rad1.getCurrentStationNumber());
+
+    }
 
     @Test
     void decreaseStationNumber() {
@@ -168,7 +216,7 @@ class RadioTest {
     @Test
     void decreaseStationNumberToMinimum() {
         Radio rad1 = new Radio(7);
-        rad1.setCurrentStationNumber(0);
+        rad1.setCurrentStationNumber(-1);
         rad1.decreaseStationNumber();
 
         assertEquals(7, rad1.getCurrentStationNumber());
