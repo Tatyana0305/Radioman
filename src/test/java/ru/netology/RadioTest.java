@@ -169,18 +169,20 @@ class RadioTest {
 
     }
 
+
     @Test
     void increaseStationNumberToMaximum() {
         Radio rad = new Radio();
         rad.setCurrentStationNumber(9);
         rad.increaseStationNumber();
 
-        int expected = 9;
+        int expected = 0;
         int actual = rad.getCurrentStationNumber();
 
         assertEquals(expected, actual);
 
     }
+
 
 
     @Test
@@ -202,7 +204,7 @@ class RadioTest {
         rad.setCurrentStationNumber(0);
         rad.decreaseStationNumber();
 
-        int expected = 0;
+        int expected = 9;
         int actual = rad.getCurrentStationNumber();
 
         assertEquals(expected, actual);

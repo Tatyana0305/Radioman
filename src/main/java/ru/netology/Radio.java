@@ -6,7 +6,7 @@ public class Radio {
 
 
     public int getCurrentStationNumber() {
-        return currentStationNumber;
+        return this.currentStationNumber;
     }
 
     public void setVolumeToMaximum() {
@@ -53,15 +53,21 @@ public class Radio {
 
     public void increaseStationNumber() {
         if (currentStationNumber < 9) {
-            this.currentStationNumber = currentStationNumber + 1;
+            this.currentStationNumber++;
 
+        }
+        if (currentStationNumber >= 9) {
+            this.currentStationNumber = 0;
         }
     }
 
     public void decreaseStationNumber() {
         if (currentStationNumber > 0) {
-            this.currentStationNumber = currentStationNumber - 1;
+            this.currentStationNumber--;
 
+        }
+        if (currentStationNumber <= 0){
+            this.currentStationNumber = 9;
         }
     }
 }
