@@ -162,10 +162,7 @@ class RadioTest {
         rad.setCurrentStationNumber(7);
         rad.increaseStationNumber();
 
-        int expected = 8;
-        int actual = rad.getCurrentStationNumber();
-
-        assertEquals(expected, actual);
+        assertEquals(8, rad.getCurrentStationNumber());
 
     }
 
@@ -176,25 +173,28 @@ class RadioTest {
         rad.setCurrentStationNumber(9);
         rad.increaseStationNumber();
 
-        int expected = 0;
-        int actual = rad.getCurrentStationNumber();
+        assertEquals(0, rad.getCurrentStationNumber());
 
-        assertEquals(expected, actual);
+    }
+
+    @Test
+    void increaseStationNumberToMaximum2() {
+        Radio rad = new Radio();
+        rad.setCurrentStationNumber(8);
+        rad.increaseStationNumber();
+
+        assertEquals(9, rad.getCurrentStationNumber());
 
     }
 
 
-
     @Test
+
     void decreaseStationNumber() {
         Radio rad = new Radio();
         rad.setCurrentStationNumber(7);
         rad.decreaseStationNumber();
-
-        int expected = 6;
-        int actual = rad.getCurrentStationNumber();
-
-        assertEquals(expected, actual);
+        assertEquals(6, rad.getCurrentStationNumber());
 
     }
 
@@ -204,11 +204,17 @@ class RadioTest {
         rad.setCurrentStationNumber(0);
         rad.decreaseStationNumber();
 
-        int expected = 9;
-        int actual = rad.getCurrentStationNumber();
-
-        assertEquals(expected, actual);
-
+        assertEquals(9, rad.getCurrentStationNumber());
     }
 
+    @Test
+    void decreaseStationNumberToMinimum2() {
+        Radio rad = new Radio();
+        rad.setCurrentStationNumber(1);
+        rad.decreaseStationNumber();
+
+
+        assertEquals(0, rad.getCurrentStationNumber());
+
+    }
 }

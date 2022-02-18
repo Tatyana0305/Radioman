@@ -54,20 +54,19 @@ public class Radio {
     public void increaseStationNumber() {
         if (currentStationNumber < 9) {
             this.currentStationNumber++;
-
-        }
-        if (currentStationNumber >= 9) {
+        } else {
             this.currentStationNumber = 0;
         }
     }
 
+
     public void decreaseStationNumber() {
         if (currentStationNumber > 0) {
             this.currentStationNumber--;
-
         }
-        if (currentStationNumber <= 0){
+        else {
             this.currentStationNumber = 9;
+
         }
     }
 }
