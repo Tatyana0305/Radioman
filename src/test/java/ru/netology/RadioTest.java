@@ -183,6 +183,15 @@ class RadioTest {
         assertEquals(1, rad1.getCurrentStationNumber());
 
     }
+    @Test
+    void increaseStationNumberToMaximum2() {
+        Radio rad1 = new Radio(7);
+        rad1.setCurrentStationNumber(6);
+        rad1.increaseStationNumber();
+
+        assertEquals(7, rad1.getCurrentStationNumber());
+
+    }
 
     @Test
     void increaseStationNumberOverMaximum() {
@@ -206,10 +215,10 @@ class RadioTest {
     @Test
     void decreaseStationNumber() {
         Radio rad1 = new Radio(7);
-        rad1.setCurrentStationNumber(4);
+        rad1.setCurrentStationNumber(2);
         rad1.decreaseStationNumber();
 
-        assertEquals(3, rad1.getCurrentStationNumber());
+        assertEquals(1, rad1.getCurrentStationNumber());
 
     }
 
@@ -217,6 +226,15 @@ class RadioTest {
     void decreaseStationNumberToMinimum() {
         Radio rad1 = new Radio(7);
         rad1.setCurrentStationNumber(-1);
+        rad1.decreaseStationNumber();
+
+        assertEquals(7, rad1.getCurrentStationNumber());
+
+    }
+    @Test
+    void decreaseStationNumberToMinimum2() {
+        Radio rad1 = new Radio(7);
+        rad1.setCurrentStationNumber(0);
         rad1.decreaseStationNumber();
 
         assertEquals(7, rad1.getCurrentStationNumber());

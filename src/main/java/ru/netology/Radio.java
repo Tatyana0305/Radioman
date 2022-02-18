@@ -25,25 +25,6 @@ public class Radio {
     }
 
 
-    public void increaseStationNumber() {
-        if (currentStationNumber < numberOfStations) {
-            this.currentStationNumber++;
-        }
-        if (currentStationNumber == numberOfStations) {
-            currentStationNumber = 0;
-        }
-    }
-
-
-    public void decreaseStationNumber() {
-        if (currentStationNumber > 0) {
-            this.currentStationNumber = currentStationNumber - 1;
-        } else {
-            currentStationNumber = numberOfStations;
-        }
-
-    }
-
     public int getNumberOfStations() {
         return numberOfStations;
     }
@@ -90,6 +71,24 @@ public class Radio {
             this.currentVolume = currentVolume - 1;
         } else {
             currentVolume = 0;
+        }
+
+    }
+
+    public void increaseStationNumber() {
+        if (currentStationNumber < numberOfStations) {
+            this.currentStationNumber++;
+        } else {
+            this.currentStationNumber = 0;
+        }
+    }
+
+
+    public void decreaseStationNumber() {
+        if (currentStationNumber > 0) {
+            this.currentStationNumber--;
+        } else {
+            this.currentStationNumber = numberOfStations;
         }
 
     }
